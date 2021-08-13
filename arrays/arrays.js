@@ -1,3 +1,5 @@
+//Arrays
+
 class MyArray {
   constructor() {
     this.length = 0;
@@ -59,6 +61,32 @@ function reverseString(str) {
 
 // console.log(reverseString("Hi my name is George"));
 
-function mergeSortedArray(arr1, arr2) {}
+function mergeSortedArray(arr1, arr2) {
+  //check inputs are both arrays
+  //if one array is empty
 
-console.log(mergeSortedArray([0, 3, 4, 31], [4, 6, 30]));
+  let pointer1 = 0;
+  let pointer2 = 0;
+  let mergedArr = [];
+  while (pointer1 < arr1.length || pointer2 < arr2.length) {
+    if (arr1[pointer1] < arr2[pointer2]) {
+      mergedArr.push(arr1[pointer1]);
+      pointer1++;
+      if (pointer1 === arr1.length) {
+        mergedArr = mergedArr.concat(arr2.slice(pointer2));
+        break;
+      }
+    } else {
+      mergedArr.push(arr2[pointer2]);
+      pointer2++;
+      if (pointer2 === arr2.length) {
+        mergedArr = mergedArr.concat(arr1.slice(pointer1));
+        break;
+      }
+    }
+  }
+
+  return mergedArr;
+}
+
+// console.log(mergeSortedArray([0, 3, 4, 31, 35, 67], [4, 6, 30, 45, 99, 106]));
