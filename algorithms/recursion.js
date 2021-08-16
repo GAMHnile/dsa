@@ -59,5 +59,26 @@ function fibonacciRecursive(n) {
   return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
 }
 
-console.log("recursive ", fibonacciRecursive(12));
-console.log("iterative ", fibonacciIterative(12));
+// console.log("recursive ", fibonacciRecursive(12));
+// console.log("iterative ", fibonacciIterative(12));
+
+//reverse a string using recursion
+function reverseString(str) {
+  if (typeof str !== "string") {
+    return null;
+    3;
+  }
+  if (str.length === 1) {
+    return str;
+  }
+  if (str.length === 2) {
+    return str[1] + str[0];
+  }
+
+  return (
+    str[str.length - 1] + reverseString(str.slice(1, [str.length - 1])) + str[0]
+  );
+}
+
+console.log(reverseString("Hello my name is George"));
+//should return: 'yretsam oyoy'
