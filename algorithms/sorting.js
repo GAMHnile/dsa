@@ -50,5 +50,48 @@ function selectionSort(array) {
 
 function insertionSort(array) {}
 
-insertionSort(numbers);
-console.log(numbers);
+// insertionSort(numbers);
+// console.log(numbers);
+
+// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+function mergeSort(array) {
+  if (array.length === 1) {
+    return array;
+  }
+  // Split Array in into right and left
+  const splitIndex = Math.ceil(array.length / 2);
+  const left = array.slice(0, splitIndex);
+  const right = array.slice(splitIndex);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  let leftPointer = 0;
+  let rightPointer = 0;
+  let mergedArr = [];
+  while (leftPointer < left.length && rightPointer < right.length) {
+    if (
+      left[leftPointer] < right[rightPointer] ||
+      left[leftPointer] === right[rightPointer]
+    ) {
+      mergedArr.push(left[leftPointer]);
+      leftPointer++;
+      if (leftPointer === left.length) {
+        mergedArr = mergedArr.concat(right.slice(rightPointer));
+      }
+    } else {
+      mergedArr.push(right[rightPointer]);
+      rightPointer++;
+      if (rightPointer === right.length) {
+        mergedArr = mergedArr.concat(left.slice(leftPointer));
+      }
+    }
+  }
+
+  return mergedArr;
+}
+
+const answer = mergeSort(numbers);
+console.log(answer);
