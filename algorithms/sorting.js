@@ -95,3 +95,19 @@ function merge(left, right) {
 
 const answer = mergeSort(numbers);
 console.log(answer);
+
+//#1 - Sort 10 schools around your house by distance: Any the input is small and the time will be small maybe insertion because of O(1) space complexity
+
+//#2 - eBay sorts listings by the current Bid amount: radix or counting sort the input is numbers with small range
+
+//#3 - Sport scores on ESPN: Quick sort the inputs will be random enough to work without getting O(n^2)
+
+//#4 - Massive database (can't fit all into memory) needs to sort through past year's user data: Merge sort dont want to mistakingly hit O(n^2)
+
+//#5 - Almost sorted Udemy review data needs to update and add 2 new reviews: Insertion sort
+
+//#6 - Temperature Records for the past 50 years in Canada: quick sort, or a counting sort (if no decimals are involved).
+
+//#7 - Large user name database needs to be sorted. Data is very random.:  Quick sort, or merge sort if there's enough memory
+
+//#8 - You want to teach sorting for the first time: Bubble sort, or insertion sort, or selection sort
